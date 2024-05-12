@@ -76,3 +76,103 @@
 //         }
 //     }
 //     ])
+
+
+
+//db.getCollection("massive-data").createIndex({about:"text"})
+// have Question db.getCollection("massive-data").find({$text: { $search: "dolor" }}).project({about:1})
+
+// db.orders.aggregate([
+//     {$lookup: {
+//           from: "test",
+//           localField: "userId",
+//           foreignField: "_id",
+//           as: "user"
+//          }}
+//     ])
+
+
+// db.test.aggregate([
+//     //stage-1
+//     {$match: {gender:"Male", age:{$gte: 30}}},
+//     //stage-2
+//     {$project: {gender:1, age:1, name:1}}
+//     ])
+
+
+//if person is age out of 21 . so they are married true. and create another collection of 21 male person.
+// db.test.aggregate([
+//     //stage-1
+//     {
+//         $match: {
+//             age: { $gt: 21 }
+
+//         },
+//     },
+//     //stage-2
+//     {
+//         $addFields: {
+//             isMarried: true,
+//             causes: "you are out of 21 age. you can see your age"
+//         }
+//     },
+//     //stage-3
+//     {
+//         $project: {
+//             name: 1, age: 1,
+//             isMarried: 1,
+//             causes: 1
+
+//         },
+//     },
+//     //stage-4
+//     {
+//         $sort: {
+//             age: 1
+
+//         }
+//     },
+//     //stage-5
+//     {
+//         $out: "outOf21AgeMalePerson"
+//     }
+// ])
+
+
+//if person is age out of 21 . so they are married true. and merge data into this file i mean same file.
+// db.test.aggregate([
+//     //stage-1
+//     {
+//         $match: {
+//             age: { $gt: 21 }
+
+//         },
+//     },
+//     //stage-2
+//     {
+//         $addFields: {
+//             isMarried: true,
+//             causes: "you are out of 21 age. you can see your age"
+//         }
+//     },
+//     //stage-3
+//     {
+//         $project: {
+//             name: 1, age: 1,
+//             isMarried: 1,
+//             causes: 1
+
+//         },
+//     },
+//     //stage-4
+//     {
+//         $sort: {
+//             age: 1
+
+//         }
+//     },
+//     //stage-5
+//     {
+//         $merge: "test"
+//     }
+// ])
