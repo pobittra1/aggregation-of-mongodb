@@ -228,6 +228,17 @@
 //     }
 // ])
 
-
+//$group with $unwind 
+// db.test.aggregate([
+//     {
+//         $unwind: "$friends"
+//     },
+//     {
+//         $group: { _id: "$friends", tuiKoybarAchhis:{$sum:1} }
+//     },
+//     {
+//         $project: {friends:1, tuiKoybarAchhis:1}
+//     }
+// ])
 
 
