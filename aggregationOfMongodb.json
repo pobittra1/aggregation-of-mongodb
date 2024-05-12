@@ -242,3 +242,23 @@
 // ])
 
 
+
+//another example
+// db.test.aggregate([
+//     {
+//         $unwind: "$interests"
+//     },
+//     {
+//         $group: {
+//             _id: "$age",
+//             interestPerAge: {$push: "$interests"}
+
+//         }
+//     },
+//     {
+//         $project: { interests: 1, age: 1, interestPerAge:1 }
+//     },
+//     {
+//         $sort: { _id: 1 }
+//     }
+// ])
