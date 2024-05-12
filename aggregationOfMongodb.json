@@ -294,3 +294,29 @@
 //         }
 //     }
 //     ])
+
+
+//$facet that mean multiple pipeline. 
+// db.test.aggregate([
+//     {
+//         $facet: {
+//             [], //pipeline-1
+//             [], //pipeline-2
+//             [], //pipeline-3
+//         }
+//     }
+//     ])
+
+
+
+//$lookup 
+// db.orders.aggregate([
+//     {
+//         $lookup: {
+//               from: "test",
+//               localField: "userId",
+//               foreignField: "_id",
+//               as: "user"
+//              }
+//     }
+//     ])
