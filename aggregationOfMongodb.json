@@ -1,0 +1,78 @@
+
+//$group, $sum, $push
+// db.test.aggregate([
+//     { $group: { _id: "$age", total: { $sum: 1 }, data: { $push: '$$ROOT' } } },
+//     {$project: {"data.name":1, "data.email":1, "data.phone":1, total:1}}
+
+// ])
+
+
+
+
+//more about $group and $project 
+// db.test.aggregate([
+//     {
+//         $group: {
+//             _id: null,
+//             totalSalary: { $sum: "$salary" },
+//             maxSalary: { $max: "$salary" },
+//             minSalary: { $min: "$salary" },
+//             avgSalary: { $avg: "$salary" },
+
+//         },
+
+//     },
+//     {
+//         $project: {
+//             totalSalary: 1,
+//             maxSalary: 1,
+//             minSalary: 1,
+//             averageSalary: "$avgSalary",
+//             rangeBtwnMaxAndMin:{$subtract: ["$maxSalary","$minSalary"]}
+//         }
+//     }
+// ])
+
+
+
+//$group with $unwind 
+// db.test.aggregate([
+//     {
+//         $unwind: "$interests"
+//     },
+//     {
+//         $group: { _id: "$age", interestPerAge: { $push: "$interests" } }
+//     },
+
+// ])//another example 
+// db.test.aggregate([
+//     {$unwind: "$friends"},
+//     {$group: { _id: "$friends", kotoBarTui:{$sum: 1}}}
+//     ])
+
+
+//$bucket, $sort, $limit 
+// db.test.aggregate([
+//     {
+//         $bucket: {
+//               groupBy: "$age",
+//               boundaries: [ 20, 40, 60, 80 ],
+//               default: "80 ar upore",
+//               output: {
+//                 "count": { $sum: 1 },
+//                 "whoIs" : { $push: "$$ROOT" }
+//               }
+//             }
+//     },
+//     {
+//         $sort: {count: -1}
+//     },
+//     {
+//         $limit: 3
+//     },
+//     {
+//         $project: {
+//             count:1
+//         }
+//     }
+//     ])
