@@ -320,3 +320,10 @@
 //              }
 //     }
 //     ])
+
+
+//compound index and text index 
+//create index
+// db.getCollection("massive-data").createIndex({about:"text"})
+//then search 
+// db.getCollection("massive-data").find({$text: { $search: "dolor" }})
