@@ -262,3 +262,35 @@
 //         $sort: { _id: 1 }
 //     }
 // ])
+
+
+
+//$bucket $limit 
+// db.test.aggregate([
+//     {
+//         $bucket: {
+//               groupBy: "$age",
+//               boundaries: [ 20,40,60,80 ],
+//               default: "80 ar uporer manus",
+//               output: {
+//                 "count": { $sum: 1 },
+//                 "whoIs" : { $push: "$$ROOT" }
+//               }
+//             }
+//     },
+//     {
+//         $sort: {
+//             count: 1
+//         }
+//     },
+//     {
+//         $limit: 4
+//     },
+//     {
+//         $project: {
+//             "whoIs.name":1,
+//             "whoIs.age":1,
+//             count:1
+//         }
+//     }
+//     ])
