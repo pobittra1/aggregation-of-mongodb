@@ -176,3 +176,32 @@
 //         $merge: "test"
 //     }
 // ])
+
+
+//$group, $sum, $push 
+// db.test.aggregate([
+//     //stage-1
+//     {
+//         $group: {
+//             _id: "$address.country",
+//             countryAre: { $sum: 1 },
+//             userByCountry: { $push: "$$ROOT" }
+//         }
+//     },
+//     //stage-2
+//     {
+//         $project: {
+//             _id: 1, countryAre: 1,
+//             "userByCountry.name": 1,
+//             "userByCountry.address": 1
+
+//         }
+//     },
+//     //stage-3
+//     {
+//         $out: "filterByCountryData"
+//     }
+// ])
+
+
+
